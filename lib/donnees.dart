@@ -102,6 +102,7 @@ dynamic Days = {
 };
 
 class Weather {
+  String time;
   String city;
   String temp;
   String conditions;
@@ -109,8 +110,8 @@ class Weather {
   String wind;
   String icon;
 
-  Weather(this.city, this.temp, this.conditions, this.humidity, this.wind,
-      this.icon);
+  Weather(this.time, this.city, this.temp, this.conditions, this.humidity,
+      this.wind, this.icon);
 }
 
 class Forecast {
@@ -127,7 +128,7 @@ class Donnees {
   String? key = dotenv.env['OPENWEATHERKEY'];
 
   Weather weather =
-      Weather("city", "temp", "conditions", "humidity", "wind", "icon");
+      Weather("time", "city", "temp", "conditions", "humidity", "wind", "icon");
   List<Forecast> forecast = [];
 
   getData(double lat, double lon, dynamic cb) async {
@@ -157,7 +158,13 @@ class Donnees {
 
     int code = data["weather"][0]["id"];
 
+    int timeStamp = int.parse(data["dt"].toString());
+    DateTime date = DateTime.fromMillisecondsSinceEpoch(timeStamp * 1000);
+    DateFormat dateFormat = DateFormat("d MMMM, EEEE");
+    String time = dateFormat.format(date);
+
     weather = Weather(
+      time,
       data["name"].toString(),
       (data["main"]["temp"] - 273.15).toStringAsFixed(1) + "°C",
       Conditions["$code"].toString(),

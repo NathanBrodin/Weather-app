@@ -63,10 +63,9 @@ class Indicateur extends StatelessWidget {
         border: Border.all(color: Colors.blue, width: 3),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Image.network(
-              "https://openweathermap.org/img/wn/${icon}@2x.png")
-      ),
+          padding: const EdgeInsets.all(10.0),
+          child: Image.network(
+              "https://openweathermap.org/img/wn/${icon}@2x.png")),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Weather',
       theme: ThemeData(
+        fontFamily: "Ubuntu",
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Ma méteo'),
@@ -95,50 +97,105 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              !loading
-                  ? Image.network("https://openweathermap.org/img/wn/${data.weather.icon}@2x.png")
-                  : const Icon(
-                      Icons.cloud,
-                      size: 64,
+      backgroundColor: Colors.black,
+      body: !loading
+          ? Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Container(
+                    alignment: Alignment.center,
+                    width: double.infinity,
+                    height: 400,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(40.0)),
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage("assets/backgrounds/sunset.png"),
+                      ),
                     ),
-              !loading
-                  ? Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Column(children: [
-                        Text(data.weather.city),
-                        Text(data.weather.temp),
-                        Text(data.weather.conditions),
-                        Text(data.weather.humidity),
-                        Text(data.weather.wind),
-                      ]),
-                    )
-                  : const Text("Chargement...")
-            ],
-          ),
-          const SizedBox(
-            height: 16.0,
-          ),
-          !loading
-              ? Expanded(
-                  child: SingleChildScrollView(
-                    child: Deroulement(data.forecast.length, data.forecast),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              data.weather.time,
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 14.0),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Column(
+                            children: [
+                              Text(
+                                data.weather.temp,
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 64.0,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                              Text(
+                                data.weather.wind,
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                )
-              : const Text("Chargement..."),
-          const SizedBox(
-            height: 16.0,
-          ),
-        ],
-      ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      !loading
+                          ? Image.network(
+                              "https://openweathermap.org/img/wn/${data.weather.icon}@2x.png")
+                          : const Icon(
+                              Icons.cloud,
+                              size: 64,
+                            ),
+                      !loading
+                          ? Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Column(children: [
+                                Text(data.weather.city),
+                                Text(data.weather.temp),
+                                Text(data.weather.conditions),
+                                Text(data.weather.humidity),
+                                Text(data.weather.wind),
+                              ]),
+                            )
+                          : const Text("Chargement...")
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 16.0,
+                  ),
+                  !loading
+                      ? Expanded(
+                          child: SingleChildScrollView(
+                            child: Deroulement(
+                                data.forecast.length, data.forecast),
+                          ),
+                        )
+                      : const Text("Chargement..."),
+                ],
+              ),
+            )
+          : const Center(
+              child: CircularProgressIndicator(),
+            ),
       floatingActionButton: FloatingActionButton(
         onPressed: getPosition,
         backgroundColor: Colors.blue,
