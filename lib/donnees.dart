@@ -105,13 +105,15 @@ class Weather {
   String time;
   String city;
   String temp;
+  String feel;
   String conditions;
-  String humidity;
+  String sunrise;
+  String sunset;
   String wind;
   String icon;
 
-  Weather(this.time, this.city, this.temp, this.conditions, this.humidity,
-      this.wind, this.icon);
+  Weather(this.time, this.city, this.temp, this.feel, this.conditions,
+      this.sunrise, this.sunset, this.wind, this.icon);
 }
 
 class Forecast {
@@ -127,8 +129,8 @@ class Donnees {
   double lat = 0, lon = 0;
   String? key = dotenv.env['OPENWEATHERKEY'];
 
-  Weather weather =
-      Weather("time", "city", "temp", "conditions", "humidity", "wind", "icon");
+  Weather weather = Weather("time", "city", "temp", "feel", "conditions",
+      "sunrise", "sunset", "wind", "icon");
   List<Forecast> forecast = [];
 
   getData(double lat, double lon, dynamic cb) async {
@@ -159,17 +161,31 @@ class Donnees {
     int code = data["weather"][0]["id"];
 
     int timeStamp = int.parse(data["dt"].toString());
+    int sunriseStamp = int.parse(data["sys"]["sunrise"].toString());
+    int sunsetStamp = int.parse(data["sys"]["sunset"].toString());
+
     DateTime date = DateTime.fromMillisecondsSinceEpoch(timeStamp * 1000);
+    DateTime sunriseDate =
+        DateTime.fromMillisecondsSinceEpoch(sunriseStamp * 1000);
+    DateTime sunsetDate =
+        DateTime.fromMillisecondsSinceEpoch(sunsetStamp * 1000);
+
     DateFormat dateFormat = DateFormat("d MMMM, EEEE");
+    DateFormat hourFormat = DateFormat("HH:mm");
+
     String time = dateFormat.format(date);
+    String sunrise = hourFormat.format(sunriseDate);
+    String sunset = hourFormat.format(sunsetDate);
 
     weather = Weather(
       time,
       data["name"].toString(),
       (data["main"]["temp"] - 273.15).toStringAsFixed(1) + "°C",
+      "Ressenti ${(data["main"]["feels_like"] - 273.15).toStringAsFixed(1)} °C",
       Conditions["$code"].toString(),
-      "Humidité à ${data["main"]["humidity"]}%",
-      "Vent à ${data["wind"]["speed"]} m/s",
+      sunrise,
+      sunset,
+      "${(data["wind"]["speed"] * 3.6).toStringAsFixed(0)} km/h",
       data["weather"][0]["icon"],
     );
 

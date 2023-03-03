@@ -102,9 +102,10 @@ class _MyHomePageState extends State<MyHomePage> {
           ? Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.max,
                 children: [
                   Container(
-                    alignment: Alignment.center,
                     width: double.infinity,
                     height: 400,
                     decoration: const BoxDecoration(
@@ -115,23 +116,50 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
                       mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              data.weather.time,
-                              style: const TextStyle(
-                                  color: Colors.white, fontSize: 14.0),
-                            ),
+                        Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(1.5),
+                                child: Text(
+                                  ((data.weather.time).split(" "))[0],
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(1.5),
+                                child: Text(
+                                  ((data.weather.time).split(" "))[1],
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(1.5),
+                                child: Text(
+                                  ((data.weather.time).split(" "))[2],
+                                  style: const TextStyle(
+                                      color: Colors.white, fontSize: 14.0),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         Align(
-                          alignment: Alignment.centerRight,
+                          alignment: const AlignmentDirectional(1, 0),
                           child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 data.weather.temp,
@@ -141,66 +169,181 @@ class _MyHomePageState extends State<MyHomePage> {
                                     fontWeight: FontWeight.w700),
                               ),
                               Text(
-                                data.weather.wind,
+                                data.weather.feel,
+                                textAlign: TextAlign.center,
                                 style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 16.0,
                                     fontWeight: FontWeight.w500),
                               ),
-                              
                             ],
                           ),
-                        )
+                        ),
+                        Align(
+                          alignment: const AlignmentDirectional(0, 0),
+                          child: Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  data.weather.conditions,
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      data.weather.city,
+                                      style: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    IconButton(
+                                        icon: const Icon(Icons.refresh_rounded,
+                                            color: Colors.white),
+                                        onPressed: getPosition),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
+                  const SizedBox(
+                    height: 8.0,
+                  ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      !loading
-                          ? Image.network(
-                              "https://openweathermap.org/img/wn/${data.weather.icon}@2x.png")
-                          : const Icon(
-                              Icons.cloud,
-                              size: 64,
+                      Container(
+                        padding: const EdgeInsets.all(32.0),
+                        decoration: const BoxDecoration(
+                          color: Color(0xFF222A36),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(32.0),
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Icon(
+                              Icons.wind_power_rounded,
+                              color: Colors.white,
                             ),
-                      !loading
-                          ? Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Column(children: [
-                                Text(data.weather.city),
-                                Text(data.weather.temp),
-                                Text(data.weather.conditions),
-                                Text(data.weather.humidity),
-                                Text(data.weather.wind),
-                              ]),
-                            )
-                          : const Text("Chargement...")
+                            const Text(
+                              "Vent",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            Text(
+                              data.weather.wind,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 14.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 8.0,
+                      ),
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.all(32.0),
+                          decoration: const BoxDecoration(
+                            color: Color(0xFF222A36),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(32.0),
+                            ),
+                          ),
+                          alignment: const AlignmentDirectional(0, 0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Icon(
+                                Icons.wb_sunny,
+                                color: Colors.white,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        "Lever du soleil",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      Text(
+                                        data.weather.sunrise,
+                                        style: const TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 14.0),
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        "Coucher du soleil",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      Text(
+                                        data.weather.sunset,
+                                        style: const TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 14.0),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                   const SizedBox(
                     height: 16.0,
                   ),
-                  !loading
-                      ? Expanded(
-                          child: SingleChildScrollView(
-                            child: Deroulement(
-                                data.forecast.length, data.forecast),
-                          ),
-                        )
-                      : const Text("Chargement..."),
+                  const Text(
+                    "Prévisions à 5 jours",
+                    style: TextStyle(color: Colors.white, fontSize: 14.0),
+                  ),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Deroulement(data.forecast.length, data.forecast),
+                    ),
+                  ),
                 ],
               ),
             )
           : const Center(
               child: CircularProgressIndicator(),
             ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: getPosition,
-        backgroundColor: Colors.blue,
-        child: const Icon(Icons.replay),
-      ),
     );
   }
 }
