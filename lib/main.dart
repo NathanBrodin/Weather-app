@@ -101,27 +101,31 @@ class _MyHomePageState extends State<MyHomePage> {
           ? Padding(
               padding: const EdgeInsets.all(8.0),
               child: CustomScrollView(
-                scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-                slivers: [
-                  SliverPersistentHeader(
-                    pinned: true,
-                    delegate: _MyHeaderDelegate(
-                      minHeight: 250.0,
-                      maxHeight: 400.0,
-                      child: WeatherNow(data, getPosition),
+                  scrollBehavior: ScrollConfiguration.of(context)
+                      .copyWith(scrollbars: false),
+                  slivers: [
+                    SliverPersistentHeader(
+                      pinned: true,
+                      delegate: _MyHeaderDelegate(
+                        minHeight: 250.0,
+                        maxHeight: 400.0,
+                        child: WeatherNow(data, getPosition),
+                      ),
                     ),
-                  ),
-                  SliverFillRemaining(
-                    child: SingleChildScrollView(
-                      child: Column(children: [
-                        const SizedBox(height: 8.0,),
+                    SliverList(
+                      delegate: SliverChildListDelegate([
+                        const SizedBox(
+                          height: 8.0,
+                        ),
                         Infos(data),
-                        //ForecastWidget(data),
+                        const SizedBox(
+                          height: 8.0,
+                        ),
+                        ForecastWidget(data.forecast),
                       ]),
-                    ),
-                  )
-                ],
-              ))
+                    )
+                  ]),
+            )
           : const Center(
               child: CircularProgressIndicator(),
             ),
