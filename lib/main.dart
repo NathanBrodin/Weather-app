@@ -101,6 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ? Padding(
               padding: const EdgeInsets.all(8.0),
               child: CustomScrollView(
+                scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
                 slivers: [
                   SliverPersistentHeader(
                     pinned: true,
