@@ -100,25 +100,50 @@ class _MyHomePageState extends State<MyHomePage> {
       body: !loading
           ? Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  WeatherNow(data, getPosition),
-                  const SizedBox(
-                    height: 8.0,
+              child: CustomScrollView(
+                slivers: [
+                  SliverAppBar(
+                    pinned: true,
+                    expandedHeight: 400,
+                    flexibleSpace: FlexibleSpaceBar(
+                      title: Text(data.weather.temp),
+                    ),
                   ),
-                  Infos(data),
-                  const SizedBox(
-                    height: 16.0,
+                  SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                        return Container(
+                          color: index.isOdd ? Colors.white : Colors.black12,
+                          height: 100.0,
+                          child: Center(
+                            child: Text('$index', textScaleFactor: 5),
+                          ),
+                        );
+                      },
+                      childCount: 20,
+                    ),
                   ),
-                  ForecastWidget(data),
                 ],
-              ),
-            )
+              ))
           : const Center(
               child: CircularProgressIndicator(),
             ),
     );
   }
 }
+
+// Column(
+//                 mainAxisAlignment: MainAxisAlignment.start,
+//                 mainAxisSize: MainAxisSize.max,
+//                 children: [
+//                   WeatherNow(data, getPosition),
+//                   const SizedBox(
+//                     height: 8.0,
+//                   ),
+//                   Infos(data),
+//                   const SizedBox(
+//                     height: 16.0,
+//                   ),
+//                   ForecastWidget(data),
+//                 ],
+//               ),
