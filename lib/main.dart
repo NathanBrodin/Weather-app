@@ -100,25 +100,61 @@ class _MyHomePageState extends State<MyHomePage> {
       body: !loading
           ? Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  WeatherNow(data, getPosition),
-                  const SizedBox(
-                    height: 8.0,
+              child: CustomScrollView(
+                slivers: [
+                  SliverPersistentHeader(
+                    pinned: true,
+                    delegate: _MyHeaderDelegate(
+                      minHeight: 250.0,
+                      maxHeight: 400.0,
+                      child: WeatherNow(data, getPosition),
+                    ),
                   ),
-                  Infos(data),
-                  const SizedBox(
-                    height: 16.0,
-                  ),
-                  ForecastWidget(data),
+                  SliverFillRemaining(
+                    child: SingleChildScrollView(
+                      child: Column(children: [
+                        const SizedBox(height: 8.0,),
+                        Infos(data),
+                        //ForecastWidget(data),
+                      ]),
+                    ),
+                  )
                 ],
-              ),
-            )
+              ))
           : const Center(
               child: CircularProgressIndicator(),
             ),
     );
+  }
+}
+
+class _MyHeaderDelegate extends SliverPersistentHeaderDelegate {
+  final double minHeight;
+  final double maxHeight;
+  final Widget child;
+
+  _MyHeaderDelegate({
+    required this.minHeight,
+    required this.maxHeight,
+    required this.child,
+  });
+
+  @override
+  double get minExtent => minHeight;
+
+  @override
+  double get maxExtent => maxHeight;
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return SizedBox.expand(child: child);
+  }
+
+  @override
+  bool shouldRebuild(covariant _MyHeaderDelegate oldDelegate) {
+    return maxHeight != oldDelegate.maxHeight ||
+        minHeight != oldDelegate.minHeight ||
+        child != oldDelegate.child;
   }
 }
