@@ -11,7 +11,7 @@ class ForecastWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(32.0),
       decoration: const BoxDecoration(
-        color: Color(0xFF222A36),
+        color: Color(0xFF212325),
         borderRadius: BorderRadius.all(
           Radius.circular(32.0),
         ),
@@ -35,44 +35,50 @@ class ForecastWidget extends StatelessWidget {
             itemBuilder: (context, index) {
               final item = forecast[index];
 
-              return Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              return Column(
                 children: [
-                  Text(
-                    item.time,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 14.0,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        item.time,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 14.0,
+                        ),
+                      ),
+                      Text(
+                        item.icon,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 14.0,
+                        ),
+                      ),
+                      Text(
+                        item.temp,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 14.0,
+                        ),
+                      ),
+                      Text(
+                        item.humidity,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 14.0,
+                        ),
+                      ),
+                      Text(
+                        item.conditions,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 14.0,
+                        ),
+                      ),
+                    ],
                   ),
-                  Text(
-                    item.icon,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 14.0,
-                    ),
-                  ),
-                  Text(
-                    item.temp,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 14.0,
-                    ),
-                  ),
-                  Text(
-                    item.humidity,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 14.0,
-                    ),
-                  ),
-                  Text(
-                    item.conditions,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 14.0,
-                    ),
-                  ),
+                  const SizedBox(height: 8.0,),
+                  const Divider(),
                 ],
               );
             },

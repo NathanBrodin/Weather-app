@@ -6,6 +6,11 @@ import 'package:weather/forecast.dart';
 import 'package:weather/infos.dart';
 import 'package:weather/weatherNow.dart';
 
+// TODO: Mettre en place un theme pour uniformiser le stye (texte...)
+// TODO: Ajouter les icones
+// TODO: Creer les images de fonds
+// TODO: Mettre la bonne police
+
 Future main() async {
   await dotenv.load(fileName: ".env");
   runApp(const MyApp());
@@ -96,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: const Color(0xFF1B1C1F),
       body: !loading
           ? Padding(
               padding: const EdgeInsets.all(8.0),

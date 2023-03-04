@@ -13,7 +13,14 @@ class Infos extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(32.0),
           decoration: const BoxDecoration(
-            color: Color(0xFF222A36),
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Colors.blue,
+                Colors.red,
+              ],
+            ),
             borderRadius: BorderRadius.all(
               Radius.circular(32.0),
             ),
@@ -49,7 +56,14 @@ class Infos extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(32.0),
             decoration: const BoxDecoration(
-              color: Color(0xFF222A36),
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  Colors.blue,
+                  Colors.red,
+                ],
+              ),
               borderRadius: BorderRadius.all(
                 Radius.circular(32.0),
               ),
@@ -58,10 +72,6 @@ class Infos extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Icon(
-                  Icons.wb_sunny,
-                  color: Colors.white,
-                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,6 +79,10 @@ class Infos extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        const Icon(
+                          Icons.wb_sunny,
+                          color: Colors.white,
+                        ),
                         const Text(
                           "Lever du soleil",
                           style: TextStyle(
@@ -86,6 +100,10 @@ class Infos extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        const Icon(
+                          Icons.wb_sunny,
+                          color: Colors.white,
+                        ),
                         const Text(
                           "Coucher du soleil",
                           style: TextStyle(
