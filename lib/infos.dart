@@ -13,14 +13,7 @@ class Infos extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(24.0),
           decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                Color(0xFF718EFE),
-                Color(0xFF023C20),
-              ],
-            ),
+            color: Color(0xFF023C20),
             borderRadius: BorderRadius.all(
               Radius.circular(32.0),
             ),
@@ -51,13 +44,7 @@ class Infos extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(24.0),
             decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [
-                Color(0xFF718EFE),
-                Color(0xFF023C20),],
-              ),
+              color: Color(0xFF023C20),
               borderRadius: BorderRadius.all(
                 Radius.circular(32.0),
               ),

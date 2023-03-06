@@ -7,9 +7,7 @@ import 'package:weather/infos.dart';
 import 'package:weather/weatherNow.dart';
 
 // TODO: Mettre en place un theme pour uniformiser le stye (texte...)
-// TODO: Ajouter les icones
 // TODO: Creer les images de fonds
-// TODO: Mettre la bonne police
 
 Future main() async {
   await dotenv.load(fileName: ".env");
