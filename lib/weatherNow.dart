@@ -54,6 +54,7 @@ class WeatherNow extends StatelessWidget {
             alignment: const AlignmentDirectional(1, 0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
                   data.weather.temp,
@@ -61,7 +62,6 @@ class WeatherNow extends StatelessWidget {
                 ),
                 Text(
                   data.weather.feel,
-                  textAlign: TextAlign.center,
                   style: const TextStyle(fontSize: 16.0, fontFamily: "Gilroy-SemiBold", color: Colors.white),
                 ),
               ],

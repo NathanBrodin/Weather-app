@@ -118,8 +118,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     SliverPersistentHeader(
                       pinned: true,
                       delegate: _MyHeaderDelegate(
-                        minHeight: 250.0,
-                        maxHeight: 400.0,
+                        minHeight: 220.0,
+                        maxHeight: 450.0,
                         child: WeatherNow(data, getPosition),
                       ),
                     ),
