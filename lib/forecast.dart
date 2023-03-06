@@ -18,9 +18,9 @@ class ForecastWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             "Prévision à 5 jours",
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w500, color: Colors.white),
           ),
           const SizedBox(
             height: 16.0,

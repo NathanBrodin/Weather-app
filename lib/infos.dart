@@ -11,7 +11,7 @@ class Infos extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       children: [
         Container(
-          padding: const EdgeInsets.all(32.0),
+          padding: const EdgeInsets.all(24.0),
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topRight,
@@ -29,16 +29,20 @@ class Infos extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Icon(
-                Icons.wind_power_rounded,
+                Icons.air,
+                weight: 100,
                 color: Colors.white,
               ),
-              Text(
+              const Text(
                 "Vent",
-                style: Theme.of(context).textTheme.bodyMedium,
+                style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w200, color: Colors.white),
+              ),
+              const SizedBox(
+                height: 5.0,
               ),
               Text(
                 data.weather.wind,
-                style: Theme.of(context).textTheme.bodyMedium,
+                style: const TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Colors.white),
               ),
             ],
           ),
@@ -48,7 +52,7 @@ class Infos extends StatelessWidget {
         ),
         Expanded(
           child: Container(
-            padding: const EdgeInsets.all(32.0),
+            padding: const EdgeInsets.all(24.0),
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topRight,
@@ -74,16 +78,17 @@ class Infos extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Icon(
-                          Icons.wb_sunny,
+                          Icons.wb_twilight,
                           color: Colors.white,
                         ),
-                        Text(
-                          "Lever du soleil",
-                          style: Theme.of(context).textTheme.bodyMedium,
+                        const Text(
+                          "L. du soleil",
+                          style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w200, color: Colors.white),
                         ),
+                        const SizedBox(height: 5.0,),
                         Text(
                           data.weather.sunrise,
-                          style: Theme.of(context).textTheme.bodyMedium,
+                          style: const TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Colors.white),
                         ),
                       ],
                     ),
@@ -91,16 +96,17 @@ class Infos extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Icon(
-                          Icons.wb_sunny,
+                          Icons.wb_twilight,
                           color: Colors.white,
                         ),
-                        Text(
-                          "Coucher du soleil",
-                          style: Theme.of(context).textTheme.bodyMedium,
+                        const Text(
+                          "C. du soleil",
+                          style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w200, color: Colors.white),
                         ),
+                        const SizedBox(height: 5.0,),
                         Text(
                           data.weather.sunset,
-                          style: Theme.of(context).textTheme.bodyMedium,
+                          style: const TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Colors.white),
                         ),
                       ],
                     ),

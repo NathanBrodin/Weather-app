@@ -81,7 +81,7 @@ flutter:
   fonts:
     - family: Gilroy
       fonts:
-      - asset: fonts/Gilroy-Bold.ttf
+      - asset: fonts/Gilroy-Black.ttf
         weight: 900
       - asset: fonts/Gilroy-ExtraBold.ttf
         weight: 800
@@ -95,9 +95,9 @@ flutter:
         weight: 400
       - asset: fonts/Gilroy-Light.ttf
         weight: 300
-      - asset: fonts/Gilroy-UltraLight.ttf
-        weight: 200
       - asset: fonts/Gilroy-Thin.ttf
+        weight: 200
+      - asset: fonts/Gilroy-UltraLight.ttf
         weight: 100
 
   #   - family: Schyler
