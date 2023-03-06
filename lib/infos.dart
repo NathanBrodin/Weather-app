@@ -32,19 +32,13 @@ class Infos extends StatelessWidget {
                 Icons.wind_power_rounded,
                 color: Colors.white,
               ),
-              const Text(
+              Text(
                 "Vent",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.w500),
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
               Text(
                 data.weather.wind,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 14.0,
-                ),
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
             ],
           ),
@@ -83,17 +77,13 @@ class Infos extends StatelessWidget {
                           Icons.wb_sunny,
                           color: Colors.white,
                         ),
-                        const Text(
+                        Text(
                           "Lever du soleil",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w500),
+                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
                         Text(
                           data.weather.sunrise,
-                          style: const TextStyle(
-                              color: Colors.white, fontSize: 14.0),
+                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
                       ],
                     ),
@@ -104,17 +94,13 @@ class Infos extends StatelessWidget {
                           Icons.wb_sunny,
                           color: Colors.white,
                         ),
-                        const Text(
+                        Text(
                           "Coucher du soleil",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w500),
+                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
                         Text(
                           data.weather.sunset,
-                          style: const TextStyle(
-                              color: Colors.white, fontSize: 14.0),
+                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
                       ],
                     ),

@@ -9,7 +9,6 @@ class WeatherNow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
       height: 400,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(40.0)),
@@ -31,27 +30,21 @@ class WeatherNow extends StatelessWidget {
                   padding: const EdgeInsets.all(1.5),
                   child: Text(
                     ((data.weather.time).split(" "))[0],
-                    style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.w500),
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(1.5),
                   child: Text(
                     ((data.weather.time).split(" "))[1],
-                    style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.w500),
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(1.5),
                   child: Text(
                     ((data.weather.time).split(" "))[2],
-                    style: const TextStyle(color: Colors.white, fontSize: 14.0),
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
               ],
@@ -65,18 +58,12 @@ class WeatherNow extends StatelessWidget {
               children: [
                 Text(
                   data.weather.temp,
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 64.0,
-                      fontWeight: FontWeight.w700),
+                  style: Theme.of(context).textTheme.headlineLarge,
                 ),
                 Text(
                   data.weather.feel,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w500),
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
               ],
             ),
@@ -90,10 +77,7 @@ class WeatherNow extends StatelessWidget {
                 children: [
                   Text(
                     data.weather.conditions,
-                    style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.w500),
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
@@ -101,10 +85,7 @@ class WeatherNow extends StatelessWidget {
                     children: [
                       Text(
                         data.weather.city,
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w500),
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       IconButton(
                           icon: const Icon(Icons.refresh_rounded,

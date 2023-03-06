@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:weather/deroulement.dart';
 
 class ForecastWidget extends StatelessWidget {
   dynamic forecast;
@@ -19,12 +18,9 @@ class ForecastWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             "Prévision à 5 jours",
-            style: TextStyle(
-                color: Colors.white,
-                fontSize: 14.0,
-                fontWeight: FontWeight.w500),
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
           const SizedBox(
             height: 16.0,
@@ -42,38 +38,23 @@ class ForecastWidget extends StatelessWidget {
                     children: [
                       Text(
                         item.time,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 14.0,
-                        ),
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       Text(
                         item.icon,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 14.0,
-                        ),
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       Text(
                         item.temp,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 14.0,
-                        ),
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       Text(
                         item.humidity,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 14.0,
-                        ),
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       Text(
                         item.conditions,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 14.0,
-                        ),
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ],
                   ),
