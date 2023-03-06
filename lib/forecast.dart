@@ -40,10 +40,8 @@ class ForecastWidget extends StatelessWidget {
                         item.time,
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
-                      Text(
-                        item.icon,
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
+                      Image.asset("assets/forecast-icons/${item.icon}.png",
+                      height: 32.0,),
                       Text(
                         item.temp,
                         style: Theme.of(context).textTheme.bodyMedium,

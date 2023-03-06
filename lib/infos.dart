@@ -17,8 +17,8 @@ class Infos extends StatelessWidget {
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
               colors: [
-                Colors.blue,
-                Colors.red,
+                Color(0xFF718EFE),
+                Color(0xFF023C20),
               ],
             ),
             borderRadius: BorderRadius.all(
@@ -28,11 +28,8 @@ class Infos extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Icon(
-                Icons.air,
-                weight: 100,
-                color: Colors.white,
-              ),
+              Image.asset("assets/infos-icons/Wind.png",
+                      height: 32.0,),
               const Text(
                 "Vent",
                 style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w200, color: Colors.white),
@@ -58,9 +55,8 @@ class Infos extends StatelessWidget {
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
                 colors: [
-                  Colors.blue,
-                  Colors.red,
-                ],
+                Color(0xFF718EFE),
+                Color(0xFF023C20),],
               ),
               borderRadius: BorderRadius.all(
                 Radius.circular(32.0),
@@ -77,10 +73,8 @@ class Infos extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Icon(
-                          Icons.wb_twilight,
-                          color: Colors.white,
-                        ),
+                        Image.asset("assets/infos-icons/Sunrise.png",
+                      height: 32.0,),
                         const Text(
                           "L. du soleil",
                           style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w200, color: Colors.white),
@@ -95,10 +89,8 @@ class Infos extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Icon(
-                          Icons.wb_twilight,
-                          color: Colors.white,
-                        ),
+                        Image.asset("assets/infos-icons/Sunset.png",
+                      height: 32.0,),
                         const Text(
                           "C. du soleil",
                           style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w200, color: Colors.white),

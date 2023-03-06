@@ -14,7 +14,7 @@ class WeatherNow extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(40.0)),
         image: DecorationImage(
           fit: BoxFit.cover,
-          image: AssetImage("assets/backgrounds/sunset.png"),
+          image: AssetImage("assets/backgrounds/ClearSky.jpg"),
         ),
       ),
       child: Column(
