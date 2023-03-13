@@ -28,8 +28,8 @@ class Infos extends StatelessWidget {
               const Text(
                 "Vent",
                 style: TextStyle(
-                    fontSize: 14.0,
-                    fontFamily: "Gilroy-Thin",
+                    fontSize: 16.0,
+                    fontFamily: "Gilroy-Light",
                     color: Colors.white),
               ),
               const SizedBox(
@@ -38,8 +38,8 @@ class Infos extends StatelessWidget {
               Text(
                 data.weather.wind,
                 style: const TextStyle(
-                    fontSize: 14.0,
-                    fontFamily: "Gilroy-Regular",
+                    fontSize: 16.0,
+                    fontFamily: "Gilroy-Medium",
                     color: Colors.white),
               ),
             ],
@@ -75,8 +75,8 @@ class Infos extends StatelessWidget {
                         const Text(
                           "L. du soleil",
                           style: TextStyle(
-                              fontSize: 14.0,
-                              fontFamily: "Gilroy-Thin",
+                              fontSize: 16.0,
+                              fontFamily: "Gilroy-Light",
                               color: Colors.white),
                         ),
                         const SizedBox(
@@ -85,8 +85,8 @@ class Infos extends StatelessWidget {
                         Text(
                           data.weather.sunrise,
                           style: const TextStyle(
-                              fontSize: 14.0,
-                              fontFamily: "Gilroy-Regular",
+                              fontSize: 16.0,
+                              fontFamily: "Gilroy-Medium",
                               color: Colors.white),
                         ),
                       ],
@@ -101,8 +101,8 @@ class Infos extends StatelessWidget {
                         const Text(
                           "C. du soleil",
                           style: TextStyle(
-                              fontSize: 14.0,
-                              fontFamily: "Gilroy-Thin",
+                              fontSize: 16.0,
+                              fontFamily: "Gilroy-Light",
                               color: Colors.white),
                         ),
                         const SizedBox(
@@ -111,8 +111,8 @@ class Infos extends StatelessWidget {
                         Text(
                           data.weather.sunset,
                           style: const TextStyle(
-                              fontSize: 14.0,
-                              fontFamily: "Gilroy-Regular",
+                              fontSize: 16.0,
+                              fontFamily: "Gilroy-Medium",
                               color: Colors.white),
                         ),
                       ],

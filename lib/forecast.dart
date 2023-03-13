@@ -26,9 +26,6 @@ class ForecastWidget extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 color: Colors.white),
           ),
-          const SizedBox(
-            height: 16.0,
-          ),
           ListView.builder(
             shrinkWrap: true,
             itemCount: forecast.length,
@@ -39,59 +36,51 @@ class ForecastWidget extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        children: [
-                          Text(
-                            item.time,
-                            style: const TextStyle(
-                                fontSize: 14.0,
-                                fontFamily: "Gilroy-Thin",
-                                color: Colors.white),
-                          ),
-                          Image.asset(
-                            "assets/forecast-icons/${item.icon}.png",
-                            height: 32.0,
-                          ),
-                          Text(
-                            item.temp,
-                            style: const TextStyle(
-                                fontSize: 16.0,
-                                fontFamily: "Gilroy-SemiBold",
-                                color: Colors.white),
-                          ),
-                        ],
+                      Text(
+                        item.time,
+                        style: const TextStyle(
+                            fontSize: 14.0,
+                            fontFamily: "Gilroy-Light",
+                            color: Colors.white),
+                      ),
+                      Image.asset(
+                        "assets/forecast-icons/${item.icon}.png",
+                        height: 48.0,
+                      ),
+                      Text(
+                        item.temp,
+                        style: const TextStyle(
+                            fontSize: 18.0,
+                            fontFamily: "Gilroy-SemiBold",
+                            color: Colors.white),
                       ),
                       Container(
                         width: 25.0,
                         height: 1.0,
-                        color: Colors.grey,
+                        color: Colors.grey.shade400,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Text(
-                            item.humidity,
-                            style: const TextStyle(
-                                fontSize: 12.0,
-                                fontFamily: "Gilroy-Thin",
-                                color: Colors.grey),
-                          ),
-                          Text(
-                            item.conditions,
-                            style: const TextStyle(
-                                fontSize: 12.0,
-                                fontFamily: "Gilroy-Thin",
-                                color: Colors.grey),
-                          ),
-                        ],
+                      Text(
+                        item.humidity,
+                        style: TextStyle(
+                            fontSize: 14.0,
+                            fontFamily: "Gilroy-Light",
+                            color: Colors.grey.shade400),
+                      ),
+                      Text(
+                        item.conditions,
+                        style: TextStyle(
+                            fontSize: 14.0,
+                            fontFamily: "Gilroy-Light",
+                            color: Colors.grey.shade400),
                       ),
                     ],
                   ),
                   const SizedBox(
-                    height: 8.0,
+                    height: 4.0,
                   ),
-                  const Divider(),
+                  Divider(
+                    color: Colors.grey.shade700,
+                  ),
                 ],
               );
             },
