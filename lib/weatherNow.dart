@@ -30,21 +30,30 @@ class WeatherNow extends StatelessWidget {
                   padding: const EdgeInsets.all(1.5),
                   child: Text(
                     ((data.weather.time).split(" "))[0],
-                    style: const TextStyle(fontSize: 20.0, fontFamily: "Gilroy-Medium", color: Colors.white),
+                    style: const TextStyle(
+                        fontSize: 20.0,
+                        fontFamily: "Gilroy-Medium",
+                        color: Colors.white),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(1.5),
                   child: Text(
                     ((data.weather.time).split(" "))[1],
-                    style: const TextStyle(fontSize: 20.0, fontFamily: "Gilroy-Medium", color: Colors.white),
+                    style: const TextStyle(
+                        fontSize: 20.0,
+                        fontFamily: "Gilroy-Medium",
+                        color: Colors.white),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(1.5),
                   child: Text(
                     ((data.weather.time).split(" "))[2],
-                    style: const TextStyle(fontSize: 20.0, fontFamily: "Gilroy-Light", color: Colors.white),
+                    style: const TextStyle(
+                        fontSize: 20.0,
+                        fontFamily: "Gilroy-Light",
+                        color: Colors.white),
                   ),
                 ),
               ],
@@ -58,11 +67,17 @@ class WeatherNow extends StatelessWidget {
               children: [
                 Text(
                   data.weather.temp,
-                  style: const TextStyle(fontSize: 64.0, fontFamily: "Gilroy-ExtraBold", color: Colors.white),
+                  style: const TextStyle(
+                      fontSize: 64.0,
+                      fontFamily: "Gilroy-ExtraBold",
+                      color: Colors.white),
                 ),
                 Text(
                   data.weather.feel,
-                  style: const TextStyle(fontSize: 16.0, fontFamily: "Gilroy-SemiBold", color: Colors.white),
+                  style: const TextStyle(
+                      fontSize: 16.0,
+                      fontFamily: "Gilroy-SemiBold",
+                      color: Colors.white),
                 ),
               ],
             ),
@@ -76,7 +91,10 @@ class WeatherNow extends StatelessWidget {
                 children: [
                   Text(
                     data.weather.conditions,
-                    style: const TextStyle(fontSize: 20.0, fontFamily: "Gilroy-Regular", color: Colors.white),
+                    style: const TextStyle(
+                        fontSize: 20.0,
+                        fontFamily: "Gilroy-Regular",
+                        color: Colors.white),
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
@@ -84,7 +102,10 @@ class WeatherNow extends StatelessWidget {
                     children: [
                       Text(
                         data.weather.city,
-                        style: const TextStyle(fontSize: 20.0, fontFamily: "Gilroy-Regular", color: Colors.white),
+                        style: const TextStyle(
+                            fontSize: 20.0,
+                            fontFamily: "Gilroy-Regular",
+                            color: Colors.white),
                       ),
                       IconButton(
                           icon: const Icon(Icons.refresh_rounded,

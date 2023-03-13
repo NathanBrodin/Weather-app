@@ -8,7 +8,8 @@ class ForecastWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(32.0),
+      padding: const EdgeInsets.only(
+          top: 32.0, bottom: 32.0, left: 16.0, right: 16.0),
       decoration: const BoxDecoration(
         color: Color(0xFF212325),
         borderRadius: BorderRadius.all(
@@ -42,7 +43,10 @@ class ForecastWidget extends StatelessWidget {
                         children: [
                           Text(
                             item.time,
-                            style: Theme.of(context).textTheme.bodyMedium,
+                            style: const TextStyle(
+                                fontSize: 14.0,
+                                fontFamily: "Gilroy-Thin",
+                                color: Colors.white),
                           ),
                           Image.asset(
                             "assets/forecast-icons/${item.icon}.png",
@@ -50,20 +54,35 @@ class ForecastWidget extends StatelessWidget {
                           ),
                           Text(
                             item.temp,
-                            style: Theme.of(context).textTheme.bodyMedium,
+                            style: const TextStyle(
+                                fontSize: 16.0,
+                                fontFamily: "Gilroy-SemiBold",
+                                color: Colors.white),
                           ),
                         ],
                       ),
-                      Container(width: 25.0, height: 1.0, color: Colors.grey,),
+                      Container(
+                        width: 25.0,
+                        height: 1.0,
+                        color: Colors.grey,
+                      ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
                             item.humidity,
-                            style: Theme.of(context).textTheme.bodyMedium,
+                            style: const TextStyle(
+                                fontSize: 12.0,
+                                fontFamily: "Gilroy-Thin",
+                                color: Colors.grey),
                           ),
                           Text(
                             item.conditions,
-                            style: Theme.of(context).textTheme.bodyMedium,
+                            style: const TextStyle(
+                                fontSize: 12.0,
+                                fontFamily: "Gilroy-Thin",
+                                color: Colors.grey),
                           ),
                         ],
                       ),

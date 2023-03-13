@@ -25,12 +25,18 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: "Gilroy",
         textTheme: const TextTheme(
-          headlineLarge: TextStyle(fontSize: 76.0, fontWeight: FontWeight.w900, color: Colors.white),
-          headlineMedium: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500, color: Colors.white),
-          titleSmall: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500, color: Colors.white),
-          bodyLarge: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500, color: Colors.white),
-          bodyMedium: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Colors.white),
-          bodySmall: TextStyle(fontSize: 12.0, fontWeight: FontWeight.w300, color: Colors.grey),
+          headlineLarge: TextStyle(
+              fontSize: 76.0, fontWeight: FontWeight.w900, color: Colors.white),
+          headlineMedium: TextStyle(
+              fontSize: 16.0, fontWeight: FontWeight.w500, color: Colors.white),
+          titleSmall: TextStyle(
+              fontSize: 18.0, fontWeight: FontWeight.w500, color: Colors.white),
+          bodyLarge: TextStyle(
+              fontSize: 16.0, fontWeight: FontWeight.w500, color: Colors.white),
+          bodyMedium: TextStyle(
+              fontSize: 14.0, fontWeight: FontWeight.w400, color: Colors.white),
+          bodySmall: TextStyle(
+              fontSize: 12.0, fontWeight: FontWeight.w300, color: Colors.grey),
         ),
       ),
       home: const MyHomePage(title: 'Ma méteo'),

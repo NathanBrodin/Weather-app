@@ -21,18 +21,26 @@ class Infos extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset("assets/infos-icons/Wind.png",
-                      height: 32.0,),
+              Image.asset(
+                "assets/infos-icons/Wind.png",
+                height: 32.0,
+              ),
               const Text(
                 "Vent",
-                style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w200, color: Colors.white),
+                style: TextStyle(
+                    fontSize: 14.0,
+                    fontFamily: "Gilroy-Thin",
+                    color: Colors.white),
               ),
               const SizedBox(
                 height: 5.0,
               ),
               Text(
                 data.weather.wind,
-                style: const TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Colors.white),
+                style: const TextStyle(
+                    fontSize: 14.0,
+                    fontFamily: "Gilroy-Regular",
+                    color: Colors.white),
               ),
             ],
           ),
@@ -60,32 +68,52 @@ class Infos extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset("assets/infos-icons/Sunrise.png",
-                      height: 32.0,),
+                        Image.asset(
+                          "assets/infos-icons/Sunrise.png",
+                          height: 32.0,
+                        ),
                         const Text(
                           "L. du soleil",
-                          style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w200, color: Colors.white),
+                          style: TextStyle(
+                              fontSize: 14.0,
+                              fontFamily: "Gilroy-Thin",
+                              color: Colors.white),
                         ),
-                        const SizedBox(height: 5.0,),
+                        const SizedBox(
+                          height: 5.0,
+                        ),
                         Text(
                           data.weather.sunrise,
-                          style: const TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Colors.white),
+                          style: const TextStyle(
+                              fontSize: 14.0,
+                              fontFamily: "Gilroy-Regular",
+                              color: Colors.white),
                         ),
                       ],
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset("assets/infos-icons/Sunset.png",
-                      height: 32.0,),
+                        Image.asset(
+                          "assets/infos-icons/Sunset.png",
+                          height: 32.0,
+                        ),
                         const Text(
                           "C. du soleil",
-                          style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w200, color: Colors.white),
+                          style: TextStyle(
+                              fontSize: 14.0,
+                              fontFamily: "Gilroy-Thin",
+                              color: Colors.white),
                         ),
-                        const SizedBox(height: 5.0,),
+                        const SizedBox(
+                          height: 5.0,
+                        ),
                         Text(
                           data.weather.sunset,
-                          style: const TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Colors.white),
+                          style: const TextStyle(
+                              fontSize: 14.0,
+                              fontFamily: "Gilroy-Regular",
+                              color: Colors.white),
                         ),
                       ],
                     ),
