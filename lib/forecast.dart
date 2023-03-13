@@ -76,7 +76,7 @@ class ForecastWidget extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(
-                    height: 4.0,
+                    height: 6.0,
                   ),
                   Divider(
                     color: Colors.grey.shade700,

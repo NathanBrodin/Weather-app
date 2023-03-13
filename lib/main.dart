@@ -64,36 +64,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void getPosition() async {
     bool serviceEnable = await Geolocator.isLocationServiceEnabled();
-    if (serviceEnable == false) {
-      // ignore: use_build_context_synchronously
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return const AlertDialog(
-            title: Text("Erreur"),
-            content: Text("Localisation non disponible"),
-          );
-        },
-      );
-      return;
-    }
+    if (!serviceEnable) {
 
-    LocationPermission permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
+      LocationPermission permission = await Geolocator.checkPermission();
 
       if (permission == LocationPermission.denied) {
-        // ignore: use_build_context_synchronously
-        showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return const AlertDialog(
-              title: Text("ERREUR"),
-              content: Text("Active la localisation"),
-            );
-          },
-        );
-        return;
+        permission = await Geolocator.requestPermission();
+        if (permission == LocationPermission.denied) {
+          return;
+        }
       }
     }
 
@@ -125,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       pinned: true,
                       delegate: _MyHeaderDelegate(
                         minHeight: 225.0,
-                        maxHeight: 450.0,
+                        maxHeight: 425.0,
                         child: WeatherNow(data, getPosition),
                       ),
                     ),

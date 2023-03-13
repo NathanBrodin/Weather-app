@@ -104,7 +104,7 @@ class WeatherNow extends StatelessWidget {
                         data.weather.city,
                         style: const TextStyle(
                             fontSize: 20.0,
-                            fontFamily: "Gilroy-Regular",
+                            fontFamily: "Gilroy-Medium",
                             color: Colors.white),
                       ),
                       IconButton(
