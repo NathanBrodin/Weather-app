@@ -6,6 +6,9 @@ import 'package:weather/forecast.dart';
 import 'package:weather/infos.dart';
 import 'package:weather/weatherNow.dart';
 
+// TODO: Mettre en place un theme pour uniformiser le stye (texte...)
+// TODO: Creer les images de fonds
+
 Future main() async {
   await dotenv.load(fileName: ".env");
   runApp(const MyApp());
@@ -20,7 +23,21 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Weather',
       theme: ThemeData(
-        fontFamily: "Ubuntu",
+        fontFamily: "Gilroy",
+        textTheme: const TextTheme(
+          headlineLarge: TextStyle(
+              fontSize: 76.0, fontWeight: FontWeight.w900, color: Colors.white),
+          headlineMedium: TextStyle(
+              fontSize: 16.0, fontWeight: FontWeight.w500, color: Colors.white),
+          titleSmall: TextStyle(
+              fontSize: 18.0, fontWeight: FontWeight.w500, color: Colors.white),
+          bodyLarge: TextStyle(
+              fontSize: 16.0, fontWeight: FontWeight.w500, color: Colors.white),
+          bodyMedium: TextStyle(
+              fontSize: 14.0, fontWeight: FontWeight.w400, color: Colors.white),
+          bodySmall: TextStyle(
+              fontSize: 12.0, fontWeight: FontWeight.w300, color: Colors.grey),
+        ),
       ),
       home: const MyHomePage(title: 'Ma méteo'),
     );
@@ -47,36 +64,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void getPosition() async {
     bool serviceEnable = await Geolocator.isLocationServiceEnabled();
-    if (serviceEnable == false) {
-      // ignore: use_build_context_synchronously
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return const AlertDialog(
-            title: Text("Erreur"),
-            content: Text("Localisation non disponible"),
-          );
-        },
-      );
-      return;
-    }
+    if (!serviceEnable) {
 
-    LocationPermission permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
+      LocationPermission permission = await Geolocator.checkPermission();
 
       if (permission == LocationPermission.denied) {
-        // ignore: use_build_context_synchronously
-        showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return const AlertDialog(
-              title: Text("ERREUR"),
-              content: Text("Active la localisation"),
-            );
-          },
-        );
-        return;
+        permission = await Geolocator.requestPermission();
+        if (permission == LocationPermission.denied) {
+          return;
+        }
       }
     }
 
@@ -96,54 +92,29 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: const Color(0xFF1B1C1F),
       body: !loading
           ? Padding(
               padding: const EdgeInsets.all(8.0),
-              child: CustomScrollView(
-                slivers: [
-                  SliverAppBar(
-                    pinned: true,
-                    expandedHeight: 400,
-                    flexibleSpace: FlexibleSpaceBar(
-                      title: Text(data.weather.temp),
-                    ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  WeatherNow(data, getPosition),
+                  const SizedBox(
+                    height: 8.0,
                   ),
-                  SliverList(
-                    delegate: SliverChildBuilderDelegate(
-                      (BuildContext context, int index) {
-                        return Container(
-                          color: index.isOdd ? Colors.white : Colors.black12,
-                          height: 100.0,
-                          child: Center(
-                            child: Text('$index', textScaleFactor: 5),
-                          ),
-                        );
-                      },
-                      childCount: 20,
-                    ),
+                  Infos(data),
+                  const SizedBox(
+                    height: 16.0,
                   ),
+                  ForecastWidget(data),
                 ],
-              ))
+              ),
+            )
           : const Center(
               child: CircularProgressIndicator(),
             ),
     );
   }
 }
-
-// Column(
-//                 mainAxisAlignment: MainAxisAlignment.start,
-//                 mainAxisSize: MainAxisSize.max,
-//                 children: [
-//                   WeatherNow(data, getPosition),
-//                   const SizedBox(
-//                     height: 8.0,
-//                   ),
-//                   Infos(data),
-//                   const SizedBox(
-//                     height: 16.0,
-//                   ),
-//                   ForecastWidget(data),
-//                 ],
-//               ),

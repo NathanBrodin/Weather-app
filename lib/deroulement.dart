@@ -1,21 +1,27 @@
 import 'package:timelines/timelines.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Contenu extends StatelessWidget {
-  String temp = "";
-  String conditions = "";
+  String time;
+  String icon;
+  String temp;
+  String humidity;
+  String conditions;
 
-  Contenu(this.temp, this.conditions, {super.key});
+  Contenu(this.time, this.icon, this.temp, this.humidity, this.conditions,
+      {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
-      child: Column(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Text(time),
+          const Text("Icon"),
           Text(temp),
+          Text(humidity),
           Text(conditions),
         ],
       ),
@@ -79,21 +85,16 @@ class Deroulement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FixedTimeline.tileBuilder(
-      theme: TimelineTheme.of(context).copyWith(nodePosition: 0.5),
       builder: TimelineTileBuilder.connected(
         itemCount: itemCount,
-        contentsAlign: ContentsAlign.basic,
-        connectorBuilder: (context, index, type) {
-          return const Connecteur();
-        },
-        indicatorBuilder: (context, index) {
-          return Indicateur(forecast[index].icon);
-        },
-        oppositeContentsBuilder: (context, index) {
-          return Oppose(forecast[index].time);
-        },
+        contentsAlign: ContentsAlign.reverse,
         contentsBuilder: (context, index) {
-          return Contenu(forecast[index].temp, forecast[index].conditions);
+          return Contenu(
+              forecast[index].time,
+              forecast[index].icon,
+              forecast[index].temp,
+              forecast[index].humidity,
+              forecast[index].conditions);
         },
       ),
     );

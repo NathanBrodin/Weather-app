@@ -11,9 +11,9 @@ class Infos extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       children: [
         Container(
-          padding: const EdgeInsets.all(32.0),
+          padding: const EdgeInsets.all(24.0),
           decoration: const BoxDecoration(
-            color: Color(0xFF222A36),
+            color: Color(0xFF212325),
             borderRadius: BorderRadius.all(
               Radius.circular(32.0),
             ),
@@ -21,23 +21,26 @@ class Infos extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Icon(
-                Icons.wind_power_rounded,
-                color: Colors.white,
+              Image.asset(
+                "assets/infos-icons/Wind.png",
+                height: 32.0,
               ),
               const Text(
                 "Vent",
                 style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.w500),
+                    fontSize: 16.0,
+                    fontFamily: "Gilroy-Light",
+                    color: Colors.white),
+              ),
+              const SizedBox(
+                height: 5.0,
               ),
               Text(
                 data.weather.wind,
                 style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 14.0,
-                ),
+                    fontSize: 16.0,
+                    fontFamily: "Gilroy-Medium",
+                    color: Colors.white),
               ),
             ],
           ),
@@ -47,9 +50,9 @@ class Infos extends StatelessWidget {
         ),
         Expanded(
           child: Container(
-            padding: const EdgeInsets.all(32.0),
+            padding: const EdgeInsets.all(24.0),
             decoration: const BoxDecoration(
-              color: Color(0xFF222A36),
+              color: Color(0xFF212325),
               borderRadius: BorderRadius.all(
                 Radius.circular(32.0),
               ),
@@ -58,10 +61,6 @@ class Infos extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Icon(
-                  Icons.wb_sunny,
-                  color: Colors.white,
-                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,34 +68,52 @@ class Infos extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Image.asset(
+                          "assets/infos-icons/Sunrise.png",
+                          height: 32.0,
+                        ),
                         const Text(
-                          "Lever du soleil",
+                          "L. du soleil",
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w500),
+                              fontSize: 16.0,
+                              fontFamily: "Gilroy-Light",
+                              color: Colors.white),
+                        ),
+                        const SizedBox(
+                          height: 5.0,
                         ),
                         Text(
                           data.weather.sunrise,
                           style: const TextStyle(
-                              color: Colors.white, fontSize: 14.0),
+                              fontSize: 16.0,
+                              fontFamily: "Gilroy-Medium",
+                              color: Colors.white),
                         ),
                       ],
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Image.asset(
+                          "assets/infos-icons/Sunset.png",
+                          height: 32.0,
+                        ),
                         const Text(
-                          "Coucher du soleil",
+                          "C. du soleil",
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w500),
+                              fontSize: 16.0,
+                              fontFamily: "Gilroy-Light",
+                              color: Colors.white),
+                        ),
+                        const SizedBox(
+                          height: 5.0,
                         ),
                         Text(
                           data.weather.sunset,
                           style: const TextStyle(
-                              color: Colors.white, fontSize: 14.0),
+                              fontSize: 16.0,
+                              fontFamily: "Gilroy-Medium",
+                              color: Colors.white),
                         ),
                       ],
                     ),

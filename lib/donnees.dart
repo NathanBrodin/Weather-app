@@ -92,13 +92,13 @@ dynamic Conditions = {
 };
 
 dynamic Days = {
-  "Monday": "Lundi",
-  "Tuesday": "Mardi",
-  "Wednesday": "Mercredi",
-  "Thursday": "Jeudi",
-  "Friday": "Vendredi",
-  "Saturday": "Samedi",
-  "Sunday": "Dimanche",
+  "Monday": "Lun. ",
+  "Tuesday": "Mar. ",
+  "Wednesday": "Mer. ",
+  "Thursday": "Jeu. ",
+  "Friday": "Ven. ",
+  "Saturday": "Sam. ",
+  "Sunday": "Dim. ",
 };
 
 class Weather {
@@ -121,8 +121,9 @@ class Forecast {
   String temp;
   String conditions;
   String icon;
+  String humidity;
 
-  Forecast(this.time, this.temp, this.conditions, this.icon);
+  Forecast(this.time, this.temp, this.conditions, this.icon, this.humidity);
 }
 
 class Donnees {
@@ -204,7 +205,7 @@ class Donnees {
         var day = dayFormat.format(inputDate);
         var jour = Days[day];
 
-        time = jour + " " + hour;
+        time = jour;
       }
 
       forecast.add(
@@ -215,6 +216,7 @@ class Donnees {
               "°C",
           Conditions["$code"].toString(),
           dataForecast["list"][i]["weather"][0]["icon"],
+          "${dataForecast["list"][i]["main"]["humidity"]}%",
         ),
       );
     }

@@ -65,7 +65,9 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - .env
-    - assets/backgrounds/sunset.png
+    - assets/backgrounds/
+    - assets/forecast-icons/
+    - assets/infos-icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -79,16 +81,50 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Ubuntu
+    - family: Gilroy-Black
       fonts:
-      - asset: fonts/Ubuntu-Bold.ttf
+      - asset: fonts/Gilroy-Black.ttf
+        weight: 900
+
+    - family: Gilroy-ExtraBold
+      fonts:
+      - asset: fonts/Gilroy-ExtraBold.ttf
+        weight: 800
+
+    - family: Gilroy-Bold
+      fonts:
+      - asset: fonts/Gilroy-Bold.ttf
         weight: 700
-      - asset: fonts/Ubuntu-Medium.ttf
+
+    - family: Gilroy-SemiBold
+      fonts:
+      - asset: fonts/Gilroy-SemiBold.ttf
+        weight: 600
+
+    - family: Gilroy-Medium
+      fonts:
+      - asset: fonts/Gilroy-Medium.ttf
         weight: 500
-      - asset: fonts/Ubuntu-Regular.ttf
+
+    - family: Gilroy-Regular
+      fonts:
+      - asset: fonts/Gilroy-Regular.ttf
         weight: 400
-      - asset: fonts/Ubuntu-Light.ttf
+
+    - family: Gilroy-Light
+      fonts:
+      - asset: fonts/Gilroy-Light.ttf
         weight: 300
+
+    - family: Gilroy-Thin
+      fonts:
+      - asset: fonts/Gilroy-Thin.ttf
+        weight: 200
+
+    - family: Gilroy-UltraLight
+      fonts:
+      - asset: fonts/Gilroy-UltraLight.ttf
+        weight: 100
 
   #   - family: Schyler
   #     fonts:
