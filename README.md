@@ -9,6 +9,3 @@ Weather app developed with Flutter in Dart. The app is using the [OpenWeatherMap
 - [Salman Khan](https://dribbble.com/shots/16515389-Weather-App-Cards)
 - [Design creative agency](https://dribbble.com/shots/20331883-Concept-Weather)
 - [QClay](https://dribbble.com/shots/17996688-Weather-App)
-
-### Illustrations sources
-- [Salmanwap](https://ui8.net/salmanwap/products/weather-app-cards)
