@@ -6,8 +6,6 @@ import 'package:weather/forecast.dart';
 import 'package:weather/infos.dart';
 import 'package:weather/weatherNow.dart';
 
-// TODO: Mettre en place un theme pour uniformiser le stye (texte...)
-
 Future main() async {
   await dotenv.load(fileName: ".env");
   runApp(const MyApp());

@@ -3,36 +3,6 @@ import 'package:intl/intl.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
-dynamic WeatherIcons = {
-  "01d": "rainy-3.svg",
-  "000": "rainy-4.svg",
-  "000": "rainy-5.svg",
-  "09d": "rainy-6.svg",
-  "000": "rainy-7.svg",
-  "13d": "snowy-1.svg",
-  "000": "snowy-2.svg",
-  "000": "snowy-3.svg",
-  "000": "snowy-4.svg",
-  "000": "snowy-5.svg",
-  "000": "snowy-6.svg",
-  "11d": "thunder.svg",
-  "000": "weather.svg",
-  "000": "weather_sagittarius.svg",
-  "000": "weather_sunset.svg",
-  "000": "weather-sprite.svg",
-  "04d": "cloudy.svg",
-  "02d": "cloudy-day-1.svg",
-  "03d": "cloudy-day-2.svg",
-  "000": "cloudy-day-3.svg",
-  "02n": "cloudy-night-1.svg",
-  "03n": "cloudy-night-2.svg",
-  "000": "cloudy-night-3.svg",
-  "01d": "day.svg",
-  "01n": "night.svg",
-  "10d": "rainy-1.svg",
-  "000": "rainy-2.svg",
-};
-
 dynamic Conditions = {
   "200": "Orage et pluie fine",
   "201": "Orage et pluie",
@@ -99,6 +69,31 @@ dynamic Days = {
   "Friday": "Ven. ",
   "Saturday": "Sam. ",
   "Sunday": "Dim. ",
+};
+
+dynamic Days_complete = {
+  "Monday": "Lundi",
+  "Tuesday": "Mardi",
+  "Wednesday": "Mercredi",
+  "Thursday": "Jeudi",
+  "Friday": "Vendredi",
+  "Saturday": "Samedi",
+  "Sunday": "Dimanche",
+};
+
+dynamic Months = {
+  "January": "Janvier",
+  "February": "Février",
+  "March": "Mars",
+  "April": "Avril",
+  "May": "Mai",
+  "June": "Juin",
+  "July": "Juillet",
+  "August": "Août",
+  "September": "Septembre",
+  "October": "Octobre",
+  "November": "Novembre",
+  "December": "Décembre",
 };
 
 class Weather {
@@ -171,10 +166,18 @@ class Donnees {
     DateTime sunsetDate =
         DateTime.fromMillisecondsSinceEpoch(sunsetStamp * 1000);
 
-    DateFormat dateFormat = DateFormat("d MMMM, EEEE");
+    DateFormat dateFormat = DateFormat("d MMMM EEEE");
     DateFormat hourFormat = DateFormat("HH:mm");
 
     String time = dateFormat.format(date);
+    String number = time.split(" ")[0];
+    String day = time.split(" ")[2];
+    String month = time.split(" ")[1];
+
+    time = "$number ${Months[month]}, ${Days_complete[day]}";
+
+
+
     String sunrise = hourFormat.format(sunriseDate);
     String sunset = hourFormat.format(sunsetDate);
 
