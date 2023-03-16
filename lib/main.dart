@@ -65,7 +65,6 @@ class _MyHomePageState extends State<MyHomePage> {
   void getPosition() async {
     bool serviceEnable = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnable) {
-
       LocationPermission permission = await Geolocator.checkPermission();
 
       if (permission == LocationPermission.denied) {
