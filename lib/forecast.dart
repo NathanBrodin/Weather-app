@@ -10,21 +10,18 @@ class ForecastWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(
           top: 32.0, bottom: 32.0, left: 16.0, right: 16.0),
-      decoration: const BoxDecoration(
-        color: Color(0xFF212325),
-        borderRadius: BorderRadius.all(
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.secondary,
+        borderRadius: const BorderRadius.all(
           Radius.circular(32.0),
         ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             "Prévision à 5 jours",
-            style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.w500,
-                color: Colors.white),
+            style: Theme.of(context).textTheme.headlineLarge,
           ),
           ListView.builder(
             shrinkWrap: true,

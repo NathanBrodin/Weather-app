@@ -12,9 +12,9 @@ class Infos extends StatelessWidget {
       children: [
         Container(
           padding: const EdgeInsets.all(24.0),
-          decoration: const BoxDecoration(
-            color: Color(0xFF212325),
-            borderRadius: BorderRadius.all(
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.secondary,
+            borderRadius: const BorderRadius.all(
               Radius.circular(32.0),
             ),
           ),
@@ -25,22 +25,16 @@ class Infos extends StatelessWidget {
                 "assets/infos-icons/Wind.png",
                 height: 32.0,
               ),
-              const Text(
+              Text(
                 "Vent",
-                style: TextStyle(
-                    fontSize: 16.0,
-                    fontFamily: "Gilroy-Light",
-                    color: Colors.white),
+                style: Theme.of(context).textTheme.bodySmall,
               ),
               const SizedBox(
                 height: 5.0,
               ),
               Text(
                 data.weather.wind,
-                style: const TextStyle(
-                    fontSize: 16.0,
-                    fontFamily: "Gilroy-Medium",
-                    color: Colors.white),
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
             ],
           ),
@@ -51,9 +45,9 @@ class Infos extends StatelessWidget {
         Expanded(
           child: Container(
             padding: const EdgeInsets.all(24.0),
-            decoration: const BoxDecoration(
-              color: Color(0xFF212325),
-              borderRadius: BorderRadius.all(
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.secondary,
+              borderRadius: const BorderRadius.all(
                 Radius.circular(32.0),
               ),
             ),
@@ -72,22 +66,16 @@ class Infos extends StatelessWidget {
                           "assets/infos-icons/Sunrise.png",
                           height: 32.0,
                         ),
-                        const Text(
+                        Text(
                           "L. du soleil",
-                          style: TextStyle(
-                              fontSize: 16.0,
-                              fontFamily: "Gilroy-Light",
-                              color: Colors.white),
+                          style: Theme.of(context).textTheme.bodySmall,
                         ),
                         const SizedBox(
                           height: 5.0,
                         ),
                         Text(
                           data.weather.sunrise,
-                          style: const TextStyle(
-                              fontSize: 16.0,
-                              fontFamily: "Gilroy-Medium",
-                              color: Colors.white),
+                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
                       ],
                     ),
@@ -98,22 +86,16 @@ class Infos extends StatelessWidget {
                           "assets/infos-icons/Sunset.png",
                           height: 32.0,
                         ),
-                        const Text(
+                        Text(
                           "C. du soleil",
-                          style: TextStyle(
-                              fontSize: 16.0,
-                              fontFamily: "Gilroy-Light",
-                              color: Colors.white),
+                          style: Theme.of(context).textTheme.bodySmall,
                         ),
                         const SizedBox(
                           height: 5.0,
                         ),
                         Text(
                           data.weather.sunset,
-                          style: const TextStyle(
-                              fontSize: 16.0,
-                              fontFamily: "Gilroy-Medium",
-                              color: Colors.white),
+                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
                       ],
                     ),

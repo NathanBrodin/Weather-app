@@ -7,7 +7,6 @@ import 'package:weather/infos.dart';
 import 'package:weather/weatherNow.dart';
 
 // TODO: Mettre en place un theme pour uniformiser le stye (texte...)
-// TODO: Creer les images de fonds
 
 Future main() async {
   await dotenv.load(fileName: ".env");
@@ -23,20 +22,42 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Weather',
       theme: ThemeData(
+        colorScheme: const ColorScheme(
+            brightness: Brightness.dark,
+            primary: Colors.white,
+            onPrimary: Colors.white,
+            secondary: Color(0xFF212325),
+            onSecondary: Color(0xFF212325),
+            error: Colors.white,
+            onError: Colors.white,
+            background: Color(0xFF1B1D1F),
+            onBackground: Color(0xFF1B1D1F),
+            surface: Colors.black,
+            onSurface: Colors.black),
+
         fontFamily: "Gilroy",
+
         textTheme: const TextTheme(
           headlineLarge: TextStyle(
-              fontSize: 76.0, fontWeight: FontWeight.w900, color: Colors.white),
+              fontSize: 20.0, fontFamily: "Gilroy-Medium", color: Colors.white),
           headlineMedium: TextStyle(
-              fontSize: 16.0, fontWeight: FontWeight.w500, color: Colors.white),
-          titleSmall: TextStyle(
-              fontSize: 18.0, fontWeight: FontWeight.w500, color: Colors.white),
-          bodyLarge: TextStyle(
-              fontSize: 16.0, fontWeight: FontWeight.w500, color: Colors.white),
+              fontSize: 20.0,
+              fontFamily: "Gilroy-Regular",
+              color: Colors.white),
+          headlineSmall: TextStyle(
+              fontSize: 20.0, fontFamily: "Gilroy-Light", color: Colors.white),
+          titleLarge: TextStyle(
+              fontSize: 64.0,
+              fontFamily: "Gilroy-ExtraBold",
+              color: Colors.white),
+          titleMedium: TextStyle(
+              fontSize: 16.0,
+              fontFamily: "Gilroy-SemiBold",
+              color: Colors.white),
           bodyMedium: TextStyle(
-              fontSize: 14.0, fontWeight: FontWeight.w400, color: Colors.white),
+              fontSize: 16.0, fontFamily: "Gilroy-Medium", color: Colors.white),
           bodySmall: TextStyle(
-              fontSize: 12.0, fontWeight: FontWeight.w300, color: Colors.grey),
+              fontSize: 16.0, fontFamily: "Gilroy-Light", color: Colors.white),
         ),
       ),
       home: const MyHomePage(title: 'Ma méteo'),
@@ -91,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1B1C1F),
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: !loading
           ? Padding(
               padding: const EdgeInsets.all(8.0),
@@ -103,7 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       pinned: true,
                       delegate: _MyHeaderDelegate(
                         minHeight: 225.0,
-                        maxHeight: 425.0,
+                        maxHeight: 525.0,
                         child: WeatherNow(data, getPosition),
                       ),
                     ),
