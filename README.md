@@ -1,9 +1,13 @@
 # Weather App
-
 Developed by [Nathan](https://github.com/NathanBrodin)
-
-## Description
 Weather app developed with Flutter in Dart. The app is using the [OpenWeatherMap API](https://openweathermap.org/api) to fetch the weather data.
+It's a simple app that shows the weather for the current location and the next 5 days.
+
+## Illustrations
+Illustrations are generated with [MidJourney](https://midjourney.app/) using the prompt "An illustration of a landscape representing montains, a forest and a river on a sunny day".
+
+## Icons
+Icons are from [this dribbble](https://dribbble.com/shots/15349865-Cloudy-Icons-Light) by [ihmdone](https://dribbble.com/ihmdone).
 
 ### Inspiration for the UI
 - [Salman Khan](https://dribbble.com/shots/16515389-Weather-App-Cards)
