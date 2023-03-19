@@ -32,9 +32,7 @@ class MyApp extends StatelessWidget {
             onBackground: Color(0xFF1B1D1F),
             surface: Colors.black,
             onSurface: Colors.black),
-
         fontFamily: "Gilroy",
-
         textTheme: const TextTheme(
           headlineLarge: TextStyle(
               fontSize: 20.0, fontFamily: "Gilroy-Medium", color: Colors.white),
@@ -58,7 +56,7 @@ class MyApp extends StatelessWidget {
               fontSize: 16.0, fontFamily: "Gilroy-Light", color: Colors.white),
         ),
       ),
-      home: const MyHomePage(title: 'Ma méteo'),
+      home: const MyHomePage(title: 'Ma météo'),
     );
   }
 }

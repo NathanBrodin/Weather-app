@@ -176,8 +176,6 @@ class Donnees {
 
     time = "$number ${Months[month]}, ${Days_complete[day]}";
 
-
-
     String sunrise = hourFormat.format(sunriseDate);
     String sunset = hourFormat.format(sunsetDate);
 
