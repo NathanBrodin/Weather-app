@@ -10,11 +10,14 @@ class WeatherNow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 400,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(40.0)),
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(40.0)),
         image: DecorationImage(
+          // Add a filter to the background image to make the text easier to read.
+          colorFilter: ColorFilter.mode(
+              Colors.white.withOpacity(0.5), BlendMode.dstIn),
           fit: BoxFit.cover,
-          image: AssetImage("assets/backgrounds/4.png"),
+          image: AssetImage("assets/backgrounds/${data.weather.icon}.png"),
         ),
       ),
       child: Column(
