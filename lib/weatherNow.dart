@@ -13,9 +13,6 @@ class WeatherNow extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(40.0)),
         image: DecorationImage(
-          // Add a filter to the background image to make the text easier to read.
-          colorFilter: ColorFilter.mode(
-              Colors.white.withOpacity(0.5), BlendMode.dstIn),
           fit: BoxFit.cover,
           image: AssetImage("assets/backgrounds/${data.weather.icon}.png"),
         ),
