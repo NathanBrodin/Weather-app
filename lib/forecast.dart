@@ -25,6 +25,7 @@ class ForecastWidget extends StatelessWidget {
           ),
           ListView.builder(
             shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: forecast.length,
             itemBuilder: (context, index) {
               final item = forecast[index];
