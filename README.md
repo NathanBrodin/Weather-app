@@ -16,7 +16,7 @@ One of the key features of this app is its user-friendly and intuitive design. T
 
 _As it is a project for my school, all the text is in French and there is no available version in English_
 
-## Illustrations
+### Illustrations
 Illustrations are generated with [MidJourney](https://midjourney.app/) using the prompt "a digital vector illustration of a landscape representing mountains, a forest and a river on a bright sunny day, minimalist --q .25 --ar 4:7".
 
 ### Icons
@@ -25,5 +25,5 @@ Illustrations are generated with [MidJourney](https://midjourney.app/) using the
 ### Inspiration for the UI
 - The UI of this app is inspired by the [creative agency](https://dribbble.com/shots/20331883-Concept-Weather)
 
-### Mockup
-- The mockup for this app was created using [shots.so](https://shots.so/)
+### Mockups
+- The mockups for this app were created using [shots.so](https://shots.so/)
