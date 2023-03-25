@@ -7,9 +7,6 @@
 </div>
 
 <br>
-This Weather app is developed with Flutter in Dart. The app is using the [OpenWeatherMap API](https://openweathermap.org/api) to fetch the weather data.
-It's a simple app that shows the weather for the current location and the next 5 days. UI have been strongly worked.
-
 Welcome to my Weather app! This app has been designed to provide you with accurate and up-to-date weather information for your current location and the next 5 days. It has been developed using Flutter in Dart, and it utilizes the [OpenWeatherMap API](https://openweathermap.org/api) to fetch the weather data.
 
 One of the key features of this app is its user-friendly and intuitive design. The UI has been thoughtfully crafted to provide you with a seamless experience, and the layout has been optimized to ensure that the most important information is always front and center. With this app, you can easily view the current weather conditions, temperature, and wind speed, as well as a forecast for the 5 upcoming days.
