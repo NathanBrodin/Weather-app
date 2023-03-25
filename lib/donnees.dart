@@ -182,8 +182,8 @@ class Donnees {
     weather = Weather(
       time,
       data["name"].toString(),
-      (data["main"]["temp"] - 273.15).toStringAsFixed(1) + "°C",
-      "Ressenti ${(data["main"]["feels_like"] - 273.15).toStringAsFixed(1)} °C",
+      (data["main"]["temp"] - 273.15).toStringAsFixed(0) + "°C",
+      "Ressenti ${(data["main"]["feels_like"] - 273.15).toStringAsFixed(0)} °C",
       Conditions["$code"].toString(),
       sunrise,
       sunset,

@@ -50,23 +50,27 @@ class WeatherNow extends StatelessWidget {
               ],
             ),
           ),
-          Align(
-            alignment: const AlignmentDirectional(1, 0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  data.weather.temp,
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-                Text(
-                  data.weather.feel,
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
-              ],
+          Padding(
+            padding: const EdgeInsets.only(top: 50.0),
+            child: Align(
+              alignment: Alignment.bottomRight,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    data.weather.temp,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  Text(
+                    data.weather.feel,
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                ],
+              ),
             ),
           ),
+          const Spacer(),
           Align(
             alignment: const AlignmentDirectional(0, 0),
             child: Padding(

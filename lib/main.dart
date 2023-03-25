@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:geolocator/geolocator.dart';
@@ -7,11 +5,6 @@ import 'package:weather/donnees.dart';
 import 'package:weather/forecast.dart';
 import 'package:weather/infos.dart';
 import 'package:weather/weatherNow.dart';
-
-// TODO: Add elevation to cards
-// TODO: Change background and cards colors
-// https://m1.material.io/style/color.html#color-themes
-// https://m2.material.io/design/color/dark-theme.html#ui-application
 
 Future main() async {
   await dotenv.load(fileName: ".env");
@@ -32,7 +25,7 @@ class MyApp extends StatelessWidget {
             brightness: Brightness.dark,
             primary: Colors.white,
             onPrimary: Colors.white,
-            secondary: Color(0xFF312F36),
+            secondary: Color(0xFF202225),
             onSecondary: Color(0xFF212325),
             error: Color(0xFFF2B8B5),
             onError: Color(0xFF601410),
@@ -135,7 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     SliverPersistentHeader(
                       pinned: true,
                       delegate: _MyHeaderDelegate(
-                        minHeight: 225.0,
+                        minHeight: 275.0,
                         maxHeight: 425.0,
                         child: WeatherNow(data, getPosition),
                       ),

@@ -23,9 +23,7 @@ class ForecastWidget extends StatelessWidget {
             "Prévisions à 5 jours",
             style: Theme.of(context).textTheme.headlineLarge,
           ),
-          const SizedBox(
-            height: 12.0,
-          ),
+
           ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
