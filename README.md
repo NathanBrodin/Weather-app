@@ -2,8 +2,8 @@
 # My Weather App
 ![](mockups/3_phones.png)
 <div style="display: flex; flex-wrap: wrap;">
-  <img src="mockups/1_phone.png" alt="Image 1" width="45%" />
-  <img src="mockups/3_phones_2.png" alt="Image 2" width="45%" />
+  <img src="mockups/1_phone.png" alt="Image 1" width="48%" />
+  <img src="mockups/3_phones_2.png" alt="Image 2" width="48%" />
 </div>
 
 <br>
