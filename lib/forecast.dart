@@ -20,8 +20,11 @@ class ForecastWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Prévision à 5 jours",
+            "Prévisions à 5 jours",
             style: Theme.of(context).textTheme.headlineLarge,
+          ),
+          const SizedBox(
+            height: 12.0,
           ),
           ListView.builder(
             shrinkWrap: true,
@@ -74,7 +77,7 @@ class ForecastWidget extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(
-                    height: 6.0,
+                    height: 4.0,
                   ),
                   Divider(
                     color: Colors.grey.shade700,

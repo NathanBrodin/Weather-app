@@ -87,8 +87,10 @@ class WeatherNow extends StatelessWidget {
                         style: Theme.of(context).textTheme.headlineLarge,
                       ),
                       IconButton(
-                          icon: const Icon(Icons.refresh_rounded,
-                              color: Colors.white),
+                          icon: const Icon(
+                            Icons.arrow_outward,
+                            color: Colors.white,
+                          ),
                           onPressed: getPosition),
                     ],
                   ),

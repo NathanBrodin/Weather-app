@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:geolocator/geolocator.dart';
@@ -5,6 +7,11 @@ import 'package:weather/donnees.dart';
 import 'package:weather/forecast.dart';
 import 'package:weather/infos.dart';
 import 'package:weather/weatherNow.dart';
+
+// TODO: Add elevation to cards
+// TODO: Change background and cards colors
+// https://m1.material.io/style/color.html#color-themes
+// https://m2.material.io/design/color/dark-theme.html#ui-application
 
 Future main() async {
   await dotenv.load(fileName: ".env");
@@ -25,12 +32,12 @@ class MyApp extends StatelessWidget {
             brightness: Brightness.dark,
             primary: Colors.white,
             onPrimary: Colors.white,
-            secondary: Color(0xFF212325),
+            secondary: Color(0xFF312F36),
             onSecondary: Color(0xFF212325),
-            error: Colors.white,
-            onError: Colors.white,
-            background: Color(0xFF1B1D1F),
-            onBackground: Color(0xFF1B1D1F),
+            error: Color(0xFFF2B8B5),
+            onError: Color(0xFF601410),
+            background: Color(0xFF1C1B1F),
+            onBackground: Color(0xFFE6E1E5),
             surface: Colors.black,
             onSurface: Colors.black),
         fontFamily: "Gilroy",
@@ -81,24 +88,32 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void getPosition() async {
-    bool serviceEnable = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnable) {
+    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
       LocationPermission permission = await Geolocator.checkPermission();
 
       if (permission == LocationPermission.denied) {
         permission = await Geolocator.requestPermission();
         if (permission == LocationPermission.denied) {
+          // Handle denied location permission
           return;
         }
+      } else if (permission == LocationPermission.deniedForever) {
+        // Handle permanently denied location permission
+        return;
       }
     }
 
-    Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high);
-
-    lat = position.latitude;
-    lon = position.longitude;
-    data.getData(lat, lon, refresh);
+    try {
+      Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high,
+      );
+      lat = position.latitude;
+      lon = position.longitude;
+      data.getData(lat, lon, refresh);
+    } catch (e) {
+      // Handle error getting user's location
+    }
   }
 
   void refresh() {
@@ -121,7 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       pinned: true,
                       delegate: _MyHeaderDelegate(
                         minHeight: 225.0,
-                        maxHeight: 525.0,
+                        maxHeight: 425.0,
                         child: WeatherNow(data, getPosition),
                       ),
                     ),
